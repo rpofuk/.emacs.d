@@ -25,6 +25,7 @@
 ;; Reuse error window so it does not popup on random location
 (add-to-list 'same-window-buffer-names "*cider-error*")
 
+(load-file "~/.emacs.d/cider/init.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
