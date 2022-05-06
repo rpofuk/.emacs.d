@@ -10,8 +10,7 @@
   '(evil
     spacemacs-theme
     paredit
-    cider
-    evil-collection-init))
+    evil-collection))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -21,17 +20,22 @@
 (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
 (setq evil-want-keybinding nil)
 (require 'evil)
+
 (when (require 'evil-collection nil t)
   (evil-collection-init))
+
 (evil-mode 1)
+
+;; Refresh all files when they are changed form outside
+(global-auto-revert-mode 1)
 
 (load-theme 'spacemacs-dark t)
 
-;; Reuse error window so it does not popup on random location
-(add-to-list 'same-window-buffer-names "*cider-error*")
-
 (load-file "~/.emacs.d/cider/init.el")
 (load-file "~/.emacs.d/ediff/init.el")
+
+;; Kill this buffer is usefull to avoid propmt (usually bound to C-x k)
+(global-set-key (kbd "C-x C-k") 'kill-this-buffer)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -40,7 +44,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    '("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default))
- '(package-selected-packages '(spacemacs-theme evil)))
+ '(package-selected-packages '(company spacemacs-theme evil)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
