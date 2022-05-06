@@ -1,0 +1,12 @@
+;; Custom configuration for ediff
+
+(setq ediff-split-window-function 'split-window-horizontally)
+
+;; Because edif closing woud mess up with open windows 
+
+(defun leo-ediff-before-setup ()
+  (select-frame (make-frame)))
+(add-hook 'ediff-before-setup-hook 'leo-ediff-before-setup)
+
+
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)

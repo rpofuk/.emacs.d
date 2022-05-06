@@ -10,14 +10,19 @@
   '(evil
     spacemacs-theme
     paredit
-    cider))
+    cider
+    evil-collection-init))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
 
 ;; Enable evil mode
+(setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+(setq evil-want-keybinding nil)
 (require 'evil)
+(when (require 'evil-collection nil t)
+  (evil-collection-init))
 (evil-mode 1)
 
 (load-theme 'spacemacs-dark t)
@@ -26,6 +31,7 @@
 (add-to-list 'same-window-buffer-names "*cider-error*")
 
 (load-file "~/.emacs.d/cider/init.el")
+(load-file "~/.emacs.d/ediff/init.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -41,3 +47,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(put 'erase-buffer 'disabled nil)
