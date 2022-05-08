@@ -35,6 +35,15 @@
 (define-key cider-test-report-mode-map (kbd "C-c C-t C-e")
                          'cider-test-stacktrace)
 
+(define-key cider-test-report-mode-map (kbd "C-c f")
+                         'cider-format-defun)
+(define-key cider-test-report-mode-map (kbd "C-c r")
+                         'cider-test-region)
+(define-key cider-test-report-mode-map (kbd "C-c b")
+                         'cider-test-buffer)
+
+
+
 ;; Show tests on success as well because it is very anoying when you kill report buffer and it does not pop up
 (setq cider-test-show-report-on-success t)
 

@@ -31,8 +31,9 @@
 
 (load-theme 'spacemacs-dark t)
 
-(load-file "~/.emacs.d/cider/init.el")
-(load-file "~/.emacs.d/ediff/init.el")
+(load-file "~/.emacs.d/custom/cider/init.el")
+(load-file "~/.emacs.d/custom/ediff/init.el")
+(load-file "~/.emacs.d/custom/treemacs/init.el")
 
 ;; Kill this buffer is usefull to avoid propmt (usually bound to C-x k)
 (global-set-key (kbd "C-x C-k") 'kill-this-buffer)
