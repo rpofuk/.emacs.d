@@ -2,11 +2,11 @@
 
 (require 'package)
 
-(defvar my-packages
+(defvar cider-packages
   '(cider
     company))
 
-(dolist (p my-packages)
+(dolist (p cider-packages)
   (when (not (package-installed-p p))
     (package-install p)))
 

@@ -17,6 +17,10 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
+(load-file "~/.emacs.d/custom/cider/init.el")
+(load-file "~/.emacs.d/custom/ediff/init.el")
+(load-file "~/.emacs.d/custom/project/init.el")
+
 ;; Enable evil mode
 (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
 (setq evil-want-keybinding nil)
@@ -31,10 +35,6 @@
 (global-auto-revert-mode 1)
 
 (load-theme 'spacemacs-dark t)
-
-(load-file "~/.emacs.d/custom/cider/init.el")
-(load-file "~/.emacs.d/custom/ediff/init.el")
-(load-file "~/.emacs.d/custom/project/init.el")
 
 ;; Kill this buffer is usefull to avoid propmt (usually bound to C-x k)
 (global-set-key (kbd "C-x C-k") 'kill-this-buffer)
