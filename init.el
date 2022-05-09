@@ -10,6 +10,7 @@
   '(evil
     spacemacs-theme
     paredit
+    use-package
     evil-collection))
 
 (dolist (p my-packages)
@@ -33,10 +34,16 @@
 
 (load-file "~/.emacs.d/custom/cider/init.el")
 (load-file "~/.emacs.d/custom/ediff/init.el")
-(load-file "~/.emacs.d/custom/treemacs/init.el")
+(load-file "~/.emacs.d/custom/project/init.el")
 
 ;; Kill this buffer is usefull to avoid propmt (usually bound to C-x k)
 (global-set-key (kbd "C-x C-k") 'kill-this-buffer)
+
+;; We enable paredit 
+(add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
+
+;; Lets zoom out a bit :)
+(setq text-scale-mode-amount -2)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
