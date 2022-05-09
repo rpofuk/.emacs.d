@@ -2,9 +2,10 @@
 
 (use-package projectile
   :ensure t
-  :pin melpa-stable
+  :pin melpa
   :init
   (projectile-mode +1)
+  (setq projectile-project-search-path '("~/alpha/"))
   :bind (:map projectile-mode-map
               ("s-p" . projectile-command-map)
               ("C-c p" . projectile-command-map)))
@@ -12,26 +13,16 @@
 
 (use-package winum
   :config
-  (setq winum-assign-func 'msb//winum-assign-func
-        winum-auto-assign-0-to-minibuffer nil
-        winum-auto-setup-mode-line nil
-        winum-ignored-buffers '(" *which-key*")
-        winum-scope 'frame-local)
-  (defun msb//winum-assign-func ()
-    "Custom number assignment for neotree."
-    (when (string-match-p (buffer-name) ".*\\*NeoTree\\*.*")
-      0))
-  (progn
-    (define-key winum-keymap (kbd "M-1") 'winum-select-window-1)
-    (define-key winum-keymap (kbd "M-2") 'winum-select-window-2)
-    (define-key winum-keymap (kbd "M-3") 'winum-select-window-3)
-    (define-key winum-keymap (kbd "M-4") 'winum-select-window-4)
-    (define-key winum-keymap (kbd "M-5") 'winum-select-window-5)
-    (define-key winum-keymap (kbd "M-6") 'winum-select-window-6)
-    (define-key winum-keymap (kbd "M-7") 'winum-select-window-7)
-    (define-key winum-keymap (kbd "M-8") 'winum-select-window-8)
-    (define-key winum-keymap (kbd "M-9") 'winum-select-window-9)
-    (winum-mode)))
+   (define-key map (kbd "M-0") #'treemacs-select-window)
+   (define-key map (kbd "M-1") 'winum-select-window-1)
+   (define-key map (kbd "M-2") 'winum-select-window-2)
+   (define-key map (kbd "M-3") 'winum-select-window-3)
+   (define-key map (kbd "M-4") 'winum-select-window-4)
+   (define-key map (kbd "M-5") 'winum-select-window-5)
+   (define-key map (kbd "M-6") 'winum-select-window-6)
+   (define-key map (kbd "M-7") 'winum-select-window-7)
+   (define-key map (kbd "M-8") 'winum-select-window-8)
+   (winum-mode))
 
 
 (use-package treemacs
@@ -57,8 +48,6 @@
           treemacs-git-command-pipe                ""
           treemacs-goto-tag-strategy               'refetch-index
           treemacs-header-scroll-indicators        '(nil . "^^^^^^")'
-          treemacs-indentation                     2
-          treemacs-indentation-string              " "
           treemacs-is-never-other-window           nil
           treemacs-max-git-entries                 5000
           treemacs-missing-project-action          'ask

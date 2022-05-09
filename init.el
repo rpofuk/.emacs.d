@@ -7,11 +7,9 @@
 (package-refresh-contents)
 
 (defvar my-packages
-  '(evil
-    spacemacs-theme
+  '(spacemacs-theme
     paredit
-    use-package
-    evil-collection))
+    use-package))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -20,16 +18,7 @@
 (load-file "~/.emacs.d/custom/cider/init.el")
 (load-file "~/.emacs.d/custom/ediff/init.el")
 (load-file "~/.emacs.d/custom/project/init.el")
-
-;; Enable evil mode
-(setq evil-want-integration t) ;; This is optional since it's already set to t by default.
-(setq evil-want-keybinding nil)
-(require 'evil)
-
-(when (require 'evil-collection nil t)
-  (evil-collection-init))
-
-(evil-mode 1)
+(load-file "~/.emacs.d/custom/evil/init.el")
 
 ;; Refresh all files when they are changed form outside
 (global-auto-revert-mode 1)
