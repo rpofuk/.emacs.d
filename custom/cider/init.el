@@ -45,6 +45,8 @@
                          'cider-format-buffer)
 
 
+;; Prompt or save was very annoying (InteliJ autosaves all the time so I think this is sweet middle)
+(setq cider-save-file-on-load t)
 
 ;; Show tests on success as well because it is very anoying when you kill report buffer and it does not pop up
 (setq cider-test-show-report-on-success t)

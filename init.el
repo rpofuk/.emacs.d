@@ -32,7 +32,11 @@
 (add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
 
 ;; Lets zoom out a bit :)
-(setq text-scale-mode-amount -2)
+(setq text-scale-mode-amount -3)
+
+;; configure help 
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -41,7 +45,8 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    '("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default))
- '(package-selected-packages '(company spacemacs-theme evil)))
+ '(helm-minibuffer-history-key "M-p")
+ '(package-selected-packages '(helm company spacemacs-theme evil)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -49,3 +54,6 @@
  ;; If there is more than one, they won't work right.
  )
 (put 'erase-buffer 'disabled nil)
+
+
+
