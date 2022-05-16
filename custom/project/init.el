@@ -11,7 +11,7 @@
   :pin melpa
   :config
   (projectile-global-mode)
-  (setq projectile-project-search-path '("~/alpha/"))
+  (setq projectile-project-search-path '("~/alpha/" "~/glms/"))
   (setq projectile-completion-system 'helm)
   (helm-projectile-on)
   :init

@@ -15,7 +15,12 @@
 (when (require 'evil-collection nil t)
   (evil-collection-init))
 
+(global-set-key (kbd "M-[") 'insert-pair)
+(global-set-key (kbd "M-{") 'insert-pair)
+(global-set-key (kbd "M-\"") 'insert-pair)
+
 (evil-mode 1)
+
 
 
 

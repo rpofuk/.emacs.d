@@ -25,9 +25,6 @@
 
 (load-theme 'spacemacs-dark t)
 
-;; Kill this buffer is usefull to avoid propmt (usually bound to C-x k)
-(global-set-key (kbd "C-x C-k") 'kill-this-buffer)
-
 ;; We enable paredit 
 (add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
 
