@@ -9,3 +9,6 @@ projects
 .cache
 eshell
 tramp
+.dap-breakpoints
+.lsp-session-v1
+
