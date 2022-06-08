@@ -4,7 +4,6 @@ auto-save-list/*
 tutorial/*
 elpa
 transient
-projectile*
 projects
 .cache
 eshell

@@ -16,11 +16,12 @@
     (package-install p)))
 
 
+(load-file "~/.emacs.d/custom/ediff/init.el")
 (load-file "~/.emacs.d/custom/project/init.el")
 (load-file "~/.emacs.d/custom/cider/init.el")
-(load-file "~/.emacs.d/custom/ediff/init.el")
 (load-file "~/.emacs.d/custom/evil/init.el")
 (load-file "~/.emacs.d/custom/lsp/init.el")
+(load-file "~/.emacs.d/custom/tools/iniit.el")
 (load-file "~/.emacs.d/rpofuk.el")
 
 ;; Refresh all files when they are changed form outside
@@ -29,31 +30,24 @@
 (load-theme 'spacemacs-dark t)
 
 ;; We enable paredit 
-(add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
+(add-hook 'clojure-mode-hook #'enable-paredit-mode)
 
-;; Lets zoom out a bit :)
-(setq text-scale-mode-amount -3)
+(put 'erase-buffer 'disabled nil)
 
-;; configure help 
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
+;; Set global font size
+(set-face-attribute 'default nil :height 100)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default))
- '(helm-minibuffer-history-key "M-p")
- '(package-selected-packages '(helm company spacemacs-theme evil)))
+ '(package-selected-packages
+   '(evil-collection company flycheck lsp-java which-key lsp-ui cider lsp-mode clojure-mode project-tab-groups ivy treemacs-tab-bar treemacs-magit treemacs-evil treemacs winum use-package paredit spacemacs-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-(put 'erase-buffer 'disabled nil)
-
-
-

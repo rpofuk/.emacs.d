@@ -60,6 +60,8 @@
     ;;(treemacs-resize-icons 44)
 
     (treemacs-follow-mode t)
+    (treemacs-project-follow-mode t)
+
     (treemacs-filewatch-mode t)
     (treemacs-fringe-indicator-mode 'always)
 
@@ -93,6 +95,9 @@
 
 (use-package treemacs-tab-bar ;;treemacs-tab-bar if you use tab-bar-mode
   :after (treemacs)
+  :bind
+  (:map global-map
+        ("C-x 5 3" . tab-bar-detach-tab))
   :ensure t
   :config (treemacs-set-scope-type 'Tabs))
 
