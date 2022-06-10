@@ -18,9 +18,9 @@
 
 (load-file "~/.emacs.d/custom/ediff/init.el")
 (load-file "~/.emacs.d/custom/project/init.el")
+(load-file "~/.emacs.d/custom/lsp/init.el")
 (load-file "~/.emacs.d/custom/cider/init.el")
 (load-file "~/.emacs.d/custom/evil/init.el")
-(load-file "~/.emacs.d/custom/lsp/init.el")
 (load-file "~/.emacs.d/custom/tools/iniit.el")
 (load-file "~/.emacs.d/rpofuk.el")
 

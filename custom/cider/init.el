@@ -8,7 +8,6 @@
     cider 
     lsp-ui
     which-key 
-    lsp-java
     lsp-treemacs
     flycheck
     company))
@@ -16,6 +15,8 @@
 (dolist (p cider-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+
+;; clojure-lsp 
 
 (add-hook 'clojure-mode-hook 'lsp)
 (add-hook 'clojurescript-mode-hook 'lsp)
@@ -29,7 +30,12 @@
       lsp-signature-auto-activate nil
       lsp-auto-guess-root t)
 
+
+(setq lsp-clojure-custom-server-command '("bash" "-c" "/usr/local/bin/clojure-lsp"))
+
 (lsp-ensure-server 'clojure-lsp)
+
+
 
 (require 'cider)
 
@@ -65,15 +71,16 @@
 (define-key clojure-mode-map (kbd "C-c b")
                          'cider-format-buffer)
 
-
 ;; Prompt or save was very annoying (InteliJ autosaves all the time so I think this is sweet middle)
 (setq cider-save-file-on-load t)
 
 ;; Show tests on success as well because it is very anoying when you kill report buffer and it does not pop up
 (setq cider-test-show-report-on-success t)
 
+
+
+
 ;; Reuse error window so it does not popup on random location
 (add-to-list 'same-window-buffer-names "*cider-error*")
-
 
 
