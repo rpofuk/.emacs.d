@@ -12,6 +12,7 @@
    (define-key winum-keymap (kbd "M-7") 'winum-select-window-6)
    (define-key winum-keymap (kbd "M-8") 'toogle-select-window)
    (setq winum-ignored-buffers-regexp '("--")
+	 winum-scope 'frame-local
 	 winum-auto-assign-0-to-minibuffer t
 	 winum-format " ")
    (winum-mode))

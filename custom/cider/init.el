@@ -71,13 +71,25 @@
 (define-key clojure-mode-map (kbd "C-c b")
                          'cider-format-buffer)
 
+(declare-function cider-undef-and-load-buffer "cider-eval")
+
+(defun cider-undef-and-load-buffer (&optional buffer callback undef-all)
+  "Will load and undefine bufer"
+  (interactive "P")
+  (cider-load-buffer buffer callback t))
+
+(define-key cider-mode-map (kbd "C-c C-k")
+                           #'cider-undef-and-load-buffer)
+
+;; Load also test namespace
+(setq cider-clojure-cli-aliases ":test")
+
+
 ;; Prompt or save was very annoying (InteliJ autosaves all the time so I think this is sweet middle)
 (setq cider-save-file-on-load t)
 
 ;; Show tests on success as well because it is very anoying when you kill report buffer and it does not pop up
 (setq cider-test-show-report-on-success t)
-
-
 
 
 ;; Reuse error window so it does not popup on random location
