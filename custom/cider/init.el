@@ -73,14 +73,6 @@
 
 (declare-function cider-undef-and-load-buffer "cider-eval")
 
-(defun cider-undef-and-load-buffer (&optional buffer callback undef-all)
-  "Will load and undefine bufer"
-  (interactive "P")
-  (cider-load-buffer buffer callback t))
-
-(define-key cider-mode-map (kbd "C-c C-k")
-                           #'cider-undef-and-load-buffer)
-
 ;; Load also test namespace
 (setq cider-clojure-cli-aliases ":test")
 
