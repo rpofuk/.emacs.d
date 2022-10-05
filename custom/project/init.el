@@ -4,17 +4,18 @@
 (use-package winum
   :ensure t
   :config
-   (define-key winum-keymap (kbd "M-2") 'winum-select-window-1)
-   (define-key winum-keymap (kbd "M-3") 'winum-select-window-2)
-   (define-key winum-keymap (kbd "M-4") 'winum-select-window-3)
-   (define-key winum-keymap (kbd "M-5") 'winum-select-window-4)
-   (define-key winum-keymap (kbd "M-6") 'winum-select-window-5)
-   (define-key winum-keymap (kbd "M-7") 'winum-select-window-6)
+   (define-key winum-keymap (kbd "M-0") 'winum-select-window-0)
+   (define-key winum-keymap (kbd "M-1") 'winum-select-window-1)
+   (define-key winum-keymap (kbd "M-2") 'winum-select-window-2)
+   (define-key winum-keymap (kbd "M-3") 'winum-select-window-3)
+   (define-key winum-keymap (kbd "M-4") 'winum-select-window-4)
+   (define-key winum-keymap (kbd "M-5") 'winum-select-window-5)
+   (define-key winum-keymap (kbd "M-6") 'winum-select-window-6)
+   (define-key winum-keymap (kbd "M-7") 'winum-select-window-7)
    (define-key winum-keymap (kbd "M-8") 'toogle-select-window)
    (setq winum-ignored-buffers-regexp '("--")
 	 winum-scope 'frame-local
-	 winum-auto-assign-0-to-minibuffer t
-	 winum-format " ")
+	 winum-auto-assign-0-to-minibuffer t)
    (winum-mode))
 
 
@@ -79,7 +80,7 @@
     (treemacs-hide-gitignored-files-mode nil))
   :bind
   (:map global-map
-        ("M-1"       . treemacs-select-window)
+        ("M-t"       . treemacs-select-window)
         ("C-x t 1"   . treemacs-delete-other-windows)
         ("C-x t t"   . treemacs)
         ("C-x t d"   . treemacs-select-directory)
@@ -97,19 +98,41 @@
   :ensure t)
 
 
-(use-package treemacs-tab-bar ;;treemacs-tab-bar if you use tab-bar-mode
+(use-package treemacs-tab-bar  
   :after (treemacs)
   :bind
   (:map global-map
         ("C-x 5 3" . tab-bar-detach-tab))
   :ensure t
-  :config (treemacs-set-scope-type 'Tabs))
+  :config 
+  (treemacs-set-scope-type 'Tabs))
 
 
 (use-package ivy 
   :ensure t
-  :config (ivy-mode 1))
+  :bind
+  (:map global-map
+        ("C-s" . 'swiper)
+        ("C-c C-r" . 'ivy-resume)
+        ("<f6>" . 'ivy-resume)) 
+  :config 
+   (ivy-mode)
+   (setq ivy-use-virtual-buffers t
+         ivy-count-format "(%d/%d) "
+         ivy-use-virtual-buffers t))
 
+(use-package swiper
+  :after ivy
+  :ensure t)
+
+(use-package counsel 
+  :after ivy
+  :ensure t
+  :bind 
+  (:map global-map
+        ("C-c j" . 'counsel-git-grep))
+  :config 
+  (counsel-mode))
 
 (use-package project-tab-groups
   :ensure
