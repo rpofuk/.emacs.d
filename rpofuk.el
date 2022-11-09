@@ -1,2 +1,2 @@
-(project-remember-projects-under "/home/wzhpor/alpha/")
-(project-remember-projects-under "/home/wzhpor/glms/")
+(project-remember-projects-under "~/alpha/")
+(project-remember-projects-under "~/glms/")

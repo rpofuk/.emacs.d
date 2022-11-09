@@ -1,7 +1,0 @@
-;;;; Emacs Bookmark Format Version 1;;;; -*- coding: utf-8-emacs; mode: lisp-data -*-
-;;; This format is meant to be slightly human-readable;
-;;; nevertheless, you probably don't want to edit it.
-;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("event-tournament-svc\n    ansible/deploy\n    api\n    src/tournament\n      live\n      battles.clj\n      cmd.clj\n      event.clj\n      fx.clj\n      main.clj\n      participants.clj\n      query.clj\n      tree.clj\n    test/tournament\n      data.clj\n      main_test.clj\n    .gitignore\n    Dockerfile\n    deps.edn\n    format.sh"
- (filename))
-)

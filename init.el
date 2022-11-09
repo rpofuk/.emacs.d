@@ -43,7 +43,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(winum which-key use-package treemacs-tab-bar treemacs-magit treemacs-evil spacemacs-theme project-tab-groups paredit lsp-ui lsp-treemacs flycheck evil-collection csv-mode counsel company cider))
+   '(csv-mode evil-collection company flycheck lsp-treemacs which-key lsp-ui cider lsp-mode clojure-mode project-tab-groups counsel swiper ivy treemacs-tab-bar treemacs-magit treemacs-evil treemacs winum use-package paredit spacemacs-theme))
  '(safe-local-variable-values
    '((eval let
 	   ((personal-env "~/.emacs.d/environment.el"))
