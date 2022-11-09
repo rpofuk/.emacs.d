@@ -7,3 +7,4 @@ rm -rf .cache
 ls -a | grep -vE 'init.el$|custom$|clean.sh$|rpofuk.el$|environment.el$|install.sh$|\.$|^.git.*' | xargs -I {} rm -rf  {}
 
 
+echo '(load-file "~/.emacs.d/custom/init.el")' > init.el
