@@ -42,6 +42,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(winum which-key use-package treemacs-tab-bar treemacs-magit treemacs-evil spacemacs-theme project-tab-groups paredit lsp-ui lsp-treemacs flycheck evil-collection csv-mode counsel company cider))
  '(safe-local-variable-values
    '((eval let
 	   ((personal-env "~/.emacs.d/environment.el"))

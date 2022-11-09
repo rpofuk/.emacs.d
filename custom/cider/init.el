@@ -83,6 +83,13 @@
 ;; Show tests on success as well because it is very anoying when you kill report buffer and it does not pop up
 (setq cider-test-show-report-on-success t)
 
+(defun something-fixed (&optional ARG PRED)  
+  (cider-find-and-clear-repl-output))
+
+(advice-add 'cider-test-rerun-failed-tests :before #'something-fixed)
+(advice-add 'cider-test-run-ns-tests :before #'something-fixed)
+(advice-add 'cider-test-run-test :before #'something-fixed)
+
 
 ;; Reuse error window so it does not popup on random location
 (add-to-list 'same-window-buffer-names "*cider-error*")
