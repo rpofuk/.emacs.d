@@ -1,4 +1,5 @@
 session*
+eln-cache
 ede-projects.el
 auto-save-list/*
 tutorial/*

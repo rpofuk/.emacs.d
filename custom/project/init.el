@@ -108,6 +108,7 @@
   (treemacs-set-scope-type 'Tabs))
 
 
+
 (use-package ivy 
   :ensure t
   :bind
@@ -134,8 +135,24 @@
   :config 
   (counsel-mode))
 
-(use-package project-tab-groups
-  :ensure
+(use-package tabspaces
+  :ensure t
+  :commands (tabspaces-switch-or-create-workspace
+             tabspaces-open-or-create-project-and-workspace)
   :config
-  (project-tab-groups-mode 1))
+  (tabspaces-use-filtered-buffers-as-default t)
+  (tabspaces-default-tab "Default")
+  (tabspaces-remove-to-default t)
+  (tabspaces-include-buffers '("*scratch*"))
+  ;; sessions
+  (tabspaces-session f)
+  (tabspaces-session-auto-restore f)
+  :after 
+  (tabspaces-mode))
+  
+(with-eval-after-load 'project
+  (define-key project-prefix-map  "p" 'tabspaces-open-or-create-project-and-workspace))
+
+
+ 
 

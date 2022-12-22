@@ -11,7 +11,14 @@ git clone --depth 1 https://github.com/emacs-mirror/emacs.git
 cd emacs
 
 apt-get update
-apt-get install -y build-essential libgccjit-10-dev
+
+debconf-set-selections <<< "postfix postfix/mailname string $HOSTNAME"
+debconf-set-selections <<< "postfix postfix/main_mailer_type string 'Internet Site'"
+
+
+apt-get install -y build-essential libgccjit-11-dev
+
+apt-get build-dep -y emacs 
 
 ./autogen.sh
 ./configure  \
@@ -26,8 +33,11 @@ apt-get install -y build-essential libgccjit-10-dev
 	--with-gpm=no \
 	--with-modules \
 	--with-pgtk \
+	--with-native-compilation \
 	--with-json \
 	  CFLAGS="-O4 -mtune=native -march=native -fomit-frame-pointer"
+
+make uninstall
 
 make -j6
 

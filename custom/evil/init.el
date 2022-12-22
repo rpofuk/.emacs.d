@@ -1,15 +1,19 @@
 ;; Do evil stuff
+
+(setq evil-want-keybinding nil)
 (defvar evil-packages
-  '(evil
-    evil-collection))
+  '(paredit
+     evil
+     evil-collection))
 
 (dolist (p evil-packages)
   (when (not (package-installed-p p))
     (package-install p)))
 
+;; We enable paredit 
+(add-hook 'clojure-mode-hook #'enable-paredit-mode)
+
 ;; Enable evil mode
-(setq evil-want-integration t) ;; This is optional since it's already set to t by default.
-(setq evil-want-keybinding nil)
 (require 'evil)
 
 (when (require 'evil-collection nil t)
