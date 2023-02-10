@@ -153,6 +153,9 @@
 (with-eval-after-load 'project
   (define-key project-prefix-map  "p" 'tabspaces-open-or-create-project-and-workspace))
 
-
  
+(use-package which-key
+  :config 
+  (which-key-mode)
+  :ensure t)
 
