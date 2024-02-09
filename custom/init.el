@@ -1,5 +1,6 @@
 (require 'package)
 
+
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("org" . "https://orgmode.org/elpa/")
                          ("elpa" . "https://elpa.gnu.org/packages/")))
@@ -15,6 +16,10 @@
 (when (not (package-installed-p 'use-package))
     (package-install 'use-package))
 
+(unless (package-installed-p 'no-littering)
+  (package-refresh-contents)
+  (package-install 'no-littering))
+(use-package no-littering)
 
 (load-file "~/.emacs.d/custom/ediff/init.el")
 (load-file "~/.emacs.d/custom/project/init.el")
@@ -22,7 +27,9 @@
 (load-file "~/.emacs.d/custom/cider/init.el")
 (load-file "~/.emacs.d/custom/evil/init.el")
 (load-file "~/.emacs.d/custom/tools/iniit.el")
+(load-file "~/.emacs.d/custom/plugins/init.el")
 (load-file (concat "~/.emacs.d/" (getenv "USER")  ".el"))
+
 
 ;; Refresh all files when they are changed form outside
 (global-auto-revert-mode 1)

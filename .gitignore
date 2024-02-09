@@ -1,4 +1,5 @@
 session*
+var
 eln-cache
 ede-projects.el
 auto-save-list/*

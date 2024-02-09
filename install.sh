@@ -32,13 +32,15 @@ apt-get build-dep -y emacs
 	--with-xpm \
 	--with-gpm=no \
 	--with-modules \
-	--with-pgtk \
 	--with-xwidgets \
 	--with-xml2 \
 	--with-gsettings \
 	--with-native-compilation \
 	--with-json \
 	  CFLAGS="-O4 -mtune=native -march=native -fomit-frame-pointer"
+
+
+#	--with-pgtk \
 
 make uninstall
 

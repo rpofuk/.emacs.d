@@ -153,6 +153,14 @@
 (with-eval-after-load 'project
   (define-key project-prefix-map  "p" 'tabspaces-open-or-create-project-and-workspace))
 
+(defun kill-project-and-close-tab ()
+  "Kills the current project and closes the current tab."
+  (interactive)
+  (project-kill-buffers)
+  (tab-close))
+
+(with-eval-after-load 'project
+  (define-key project-prefix-map  "k" 'kill-project-and-close-tab))
  
 (use-package which-key
   :config 

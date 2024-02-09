@@ -1,0 +1,40 @@
+
+(defun extract-subfolders-as-dot-string (directory-path)
+  "Extract subfolders after the last 'src' and convert them to a dot-separated string."
+  (let* ((directory-list (split-string directory-path "/"))
+         (last-src-index (cl-position "src" directory-list :from-end t))
+	 (relevant-list (nthcdr (1+ last-src-index) directory-list)))
+    (message "    Calcualting ns for: %s" directory-list)
+    (message "        Found src on: %s" last-src-index)
+    (message "        Relevent list: %s" relevant-list)
+    (if last-src-index
+        (string-join relevant-list ".")
+      directory-path)))
+
+(defun generate-files-from-templates (output-folder view-name)
+  "Generate files from templates in the 'templates' folder."
+  (interactive "DOutput folder: \nsView name: ")
+  (let* ((templates-folder "/home/wzhpor/alpha/edd-core-web/templates/project/src/projectname/home")
+         (template-files (directory-files templates-folder nil "\\.cljs$"))
+         (number-of-templates (length template-files)))
+    (when (> number-of-templates 0)
+      (dolist (template-file template-files)
+        (message "Rndering template at %s" template-file)
+        (let* ((template-path (expand-file-name template-file templates-folder))
+               (template-contents (with-temp-buffer
+                                   (insert-file-contents template-path)
+                                   (buffer-string)))
+	       (namespace (extract-subfolders-as-dot-string output-folder))
+	       (template-contents (string-replace
+				   "projectname"
+				   namespace
+				   template-contents))
+
+	       
+               (output-file (expand-file-name template-file output-folder)))
+          (message "     File ns %s for view: %s" namespace view-name)
+          (with-temp-file output-file
+            (insert template-contents)))))))
+
+(global-set-key (kbd "C-c C-g") 'generate-files-from-templates)
+
