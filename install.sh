@@ -16,7 +16,7 @@ debconf-set-selections <<< "postfix postfix/mailname string $HOSTNAME"
 debconf-set-selections <<< "postfix postfix/main_mailer_type string 'Internet Site'"
 
 
-apt-get install -y build-essential libgccjit-11-dev libwebkit2gtk-4.0-dev
+apt-get install -y build-essential libgccjit-11-dev libwebkit2gtk-4.1-dev
 
 apt-get build-dep -y emacs 
 
