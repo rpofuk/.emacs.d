@@ -11,6 +11,7 @@
 (require 'lsp-mode)
 (add-hook 'go-mode-hook #'lsp-deferred)
 
+
 ;; Set up before-save hooks to format buffer and add/delete imports.
 ;; Make sure you don't have other gofmt/goimports hooks enabled.
 (defun lsp-go-install-save-hooks ()
@@ -35,7 +36,24 @@
 (add-hook 'python-mode-hook 'lsp-deferred)
 (setq lsp-pylsp-plugins-black-enabled 't)
 
+(use-package lsp-pylsp
+  :ensure t
+  :config
+  (setq lsp-pylsp-plugins-pylint-enabled t)
+  (setq lsp-pylsp-plugins-flake8-enabled nil)
+  (setq lsp-pylsp-plugins-pycodestyle-enabled nil))
+
 (use-package envrc
   :ensure t)
+
+(use-package groovy-mode
+  :ensure t 
+)
+
+(require 'lsp-groovy)
+(setq lsp-groovy-server-file "~/lkw/groovy-language-server/build/libs/groovy-language-server-all.jar")
+(add-hook 'groovy-mode-hook 'lsp)
+(add-to-list 'auto-mode-alist '("Jenkinsfile\\'" . groovy-mode))
+
 
 
