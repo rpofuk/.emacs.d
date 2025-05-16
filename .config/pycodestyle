@@ -1,0 +1,5 @@
+[pycodestyle]
+ignore=C0114,C0115,C0116,C0111,D103,D100
+disable=D100,C0301,W0703
+
+
